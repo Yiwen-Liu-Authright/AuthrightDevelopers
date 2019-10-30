@@ -1,8 +1,12 @@
 // express server to run
 const express = require("express");
+const connectDB = require("./config/mongoDB");
 
 // initialize the app with express
 const app = express();
+
+// connect database
+connectDB();
 
 // Test an end point
 app.get("/", (request, response) => response.send(`API is running ...`));
