@@ -8,6 +8,10 @@ const app = express();
 // connect database
 connectDB();
 
+// Init Middleware
+// => should able to let get data in request.body
+app.use(express.json({ extended: false}));
+
 // Test an end point
 app.get("/", (request, response) => response.send(`API is running ...`));
 
