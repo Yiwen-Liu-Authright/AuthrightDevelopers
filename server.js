@@ -10,6 +10,13 @@ connectDB();
 
 // Test an end point
 app.get("/", (request, response) => response.send(`API is running ...`));
+
+// Define routes
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/posts", require("./routes/api/posts"));
+app.use("/api/profiles", require("./routes/api/profiles"));
+app.use("/api/users", require("./routes/api/users"));
+
 // Run on the server port or the local port 7000
 const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => {
