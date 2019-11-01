@@ -1,6 +1,7 @@
 // mongoDB connection
 const mongoose = require("mongoose");
 const config = require("config");
+const gravatar = require("gravatar");
 // get the mongoURI value from json
 const mongoDB = config.get("mongoURI");
 
@@ -10,7 +11,8 @@ const connectDB = async () => {
     // give back a promise
     await mongoose.connect(mongoDB, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true
     });
     console.log("MongoDB connected...");
   } catch (error) {
